@@ -18,7 +18,7 @@ use App\Http\Controllers\FinancialMovementController;
 |
 */
 //Login/SignUp Routes
-Route::post('user/login', [UserController::class, 'Login'])->middleware('cors');
+Route::post('user/login', [UserController::class, 'Login']);
 Route::post('user/signup', [UserController::class, 'SignUp']);
 //Client Routes
 Route::post('account', [AccountController::class, 'Post'])->middleware('jwt.auth');

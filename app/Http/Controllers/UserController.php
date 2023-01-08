@@ -21,7 +21,7 @@ class UserController extends Controller
 
         if (Hash::check($request->password, $hashedPassword)) {
             $token = auth('api')->login($us);
-            return $this->respondWithToken($us->id, $token);
+            return $this->respondWithToken($us->id, $us->type, $token);
         }
         return Response(['status' => 'fail', 'message' => 'Unauthorized'], 403);
     }
@@ -35,10 +35,11 @@ class UserController extends Controller
         ]);
         return Response(['status' => 'success', 'message' => 'created'], 201);
     }
-    protected function respondWithToken($user_id,$token)
+    protected function respondWithToken($user_id,$user_type,$token)
     {
         return response()->json([
             'user_id' => $user_id,
+            'user_type' => $user_type,
             'access_token' => $token,
             'token_type' => 'bearer',
             'expires_in' => auth()->factory()->getTTL() * 60
