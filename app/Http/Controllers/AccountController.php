@@ -23,7 +23,8 @@ class AccountController extends Controller
             return Response(['status' => 'fail', 'message' => 'unauthorized'], 403);
 
         }
-        return Response(['status' => 'success', 'message' => 'validated', 'balance' => $acc->first()->balance], 200);
+        return Response(['status' => 'success', 'message' => 'validated',
+         'balance' => $acc->first()->balance, 'account_id' => $acc->id], 200);
     }
 
     public function Deposit(Request $request)
