@@ -13,7 +13,7 @@ class FinancialMovementController extends Controller
 
     public function GetByUser(string $user_id)
     {
-        return FinancialMovement::where(['user_id' => $user_id])->get();
+        return FinancialMovement::where(['user_id' => $user_id, 'status' => 2])->get();
     }
     public function GetByAdmin()
     {

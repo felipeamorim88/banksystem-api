@@ -99,7 +99,7 @@ class AccountController extends Controller
         return Response([
             'status' => 'success',
             'message' => 'created',
-            'accountId' => $inserted->id
+            'account_id' => $inserted->id
         ], 201);
     }
 }
