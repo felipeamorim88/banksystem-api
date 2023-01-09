@@ -20,6 +20,7 @@ class CreateFinancialMovement extends Migration
             $table->float('value');
             $table->integer('status');
             $table->string('transaction_hash');
+            $table->string('description');
             $table->timestamps();
         });
     }

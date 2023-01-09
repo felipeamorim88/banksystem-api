@@ -11,7 +11,7 @@ class FinancialMovement extends Model
     use HasFactory;
 
     protected $table = 'financial_movement';
-    protected $fillable = ['user_id', 'previous_value', 'value', 'status', 'transaction_hash','image_base64'];
+    protected $fillable = ['user_id', 'previous_value', 'value', 'status', 'transaction_hash','image_base64','description'];
     /**
  * The "booting" method of the model.
  *
@@ -25,6 +25,8 @@ protected static function boot()
     static::creating(function ($query) {
         $query->transaction_hash = $query->transaction_hash ?? "";
         $query->image_base64 = $query->image_base64 ?? "";
+        $query->description = $query->description ?? "";
+
 
         $query->status = $query->status ?? FinancialMovementStatus::PENDING;
     });
