@@ -38,7 +38,7 @@ class FinancialMovementController extends Controller
                 'value' => $request->value,
                 'status' => FinancialMovementStatus::ACCEPTED,
                 'transaction_id' => bin2hex(random_bytes(16)),
-                'description'-> $request->description
+                'description'=> $request->description
             ]);
 
             $acc->balance -= $request->value;
