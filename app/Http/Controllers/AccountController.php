@@ -33,7 +33,7 @@ class AccountController extends Controller
         $acc = Account::find($request->id);
         if ($request->image == null) {
             FinancialMovement::create([
-                'user_id' => $request->id,
+                'user_id' => $acc->user_id,
                 'previous_value' => $acc->balance,
                 'value' => $request->value,
                 'status' => FinancialMovementStatus::REJECTED,
@@ -41,7 +41,7 @@ class AccountController extends Controller
             return Response(['status' => 'fail', 'message' => 'upload an image'], 422);
         }
         FinancialMovement::create([
-            'user_id' => $request->id,
+            'user_id' => $acc->_user_id,
             'previous_value' => $acc->balance,
             'value' => $request->value,
             'status' => FinancialMovementStatus::PENDING,
