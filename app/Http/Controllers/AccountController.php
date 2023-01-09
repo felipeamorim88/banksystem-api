@@ -41,7 +41,7 @@ class AccountController extends Controller
             return Response(['status' => 'fail', 'message' => 'upload an image'], 422);
         }
         FinancialMovement::create([
-            'user_id' => $acc->_user_id,
+            'user_id' => $acc->user_id,
             'previous_value' => $acc->balance,
             'value' => $request->value,
             'status' => FinancialMovementStatus::PENDING,
