@@ -89,11 +89,12 @@ class AccountController extends Controller
 
     public function Post(Request $request)
     {
+        $id = auth('api')->user()->id;
         $inserted = Account::create([
             'balance' => 0,
             'username' => $request->user()->name,
             'password' => Hash::make($request->password),
-            'user_id'-> $request->user()->id
+            'user_id'-> $id
         ]);
         return Response([
             'status' => 'success',
