@@ -8,8 +8,6 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\Account;
 use Illuminate\Support\Facades\Hash;
-use PHPUnit\Framework\Constraint\IsEmpty;
-
 class AccountController extends Controller
 {
 
@@ -94,7 +92,8 @@ class AccountController extends Controller
         $inserted = Account::create([
             'balance' => 0,
             'username' => $request->user()->name,
-            'password' => Hash::make($request->password)
+            'password' => Hash::make($request->password),
+            'user_id'-> $request->user()->id
         ]);
         return Response([
             'status' => 'success',

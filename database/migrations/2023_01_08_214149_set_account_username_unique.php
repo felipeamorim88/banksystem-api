@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class UpdateAccount extends Migration
+class SetAccountUsernameUnique extends Migration
 {
     /**
      * Run the migrations.
@@ -14,10 +14,7 @@ class UpdateAccount extends Migration
     public function up()
     {
         Schema::table('accounts', function (Blueprint $table) {
-            $table->float('balance');
-            $table->string('username');
-            $table->string('password');
-            $table->bigInteger('user_id');
+            $table->unique('username','idx_unique_username');
         });
     }
 
@@ -28,5 +25,6 @@ class UpdateAccount extends Migration
      */
     public function down()
     {
+        //
     }
 }
