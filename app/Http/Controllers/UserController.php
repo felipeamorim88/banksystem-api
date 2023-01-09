@@ -17,7 +17,7 @@ class UserController extends Controller
         $us = User::where('name', $request->name)->first();
         if($us == null)
         return Response(['status' => 'fail', 'message' => 'Unauthorized'], 403);
-        $acc = Account::where('user_id', $us->id);
+        $acc = Account::where('user_id', $us->id)->get();
 
         $accountId = $acc == null ? 0 : $acc->id;
 
