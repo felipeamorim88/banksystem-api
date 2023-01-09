@@ -36,6 +36,6 @@ class FinancialMovementStatus extends Enum
 {
     const PENDING = 1;
     const ACCEPTED = 2;
-    const REJECTED = 2;
+    const REJECTED = 3;
 
 }
