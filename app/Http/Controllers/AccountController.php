@@ -94,7 +94,7 @@ class AccountController extends Controller
             'balance' => 0,
             'username' => $request->user()->name,
             'password' => Hash::make($request->password),
-            'user_id'-> strval($id)
+            'user_id'=> $id
         ]);
         return Response([
             'status' => 'success',
